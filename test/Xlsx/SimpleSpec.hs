@@ -5,6 +5,9 @@ import Test.Hspec
 import Xlsx.Simple
 import Codec.Xlsx
 import Codec.Xlsx.Writer
+import Data.Time
+import Data.Time.LocalTime
+import Control.Applicative
 
 testFileName = "testD.xlsx" 
 
@@ -61,18 +64,39 @@ testIgdouble  = igDouble 2.781828
 testIndouble   :: CellData 
 testIndouble  = inDouble 2.781828 
 
-
-
-
 main :: IO ()
 main = hspec spec
 
 spec :: Spec
-spec = do
-  describe "writeXlsxFile" $ do
-    it "should print test data to xlsx file and exit" $ do
-      writeXlsxFile testFileName testSheetName ([testSheet] ++ [testSheet2])
+spec = do    
+
+  describe "writeXlsxFile" $ do    
+    it "should print test data to xlsx file and exit" $ do                               
+      t <- getCurrentTime
+      let sheet3 = testSheet3 <*> [utcToLocalTime (hoursToTimeZone (-6)) t]
+      writeXlsxFile testFileName testSheetName ([testSheet] ++ [testSheet2] ++ [sheet3])
       True `shouldBe` True
+
+
+
+
+
+testSheet3 = [bbDate                 
+             ,ibDate                 
+             ,nbDate                 
+             ,bgrDate                
+             ,igrDate                
+             ,ngrDate                
+             ,brDate                 
+             ,irDate                 
+             ,nrDate                 
+             ,bgDate                 
+             ,igDate                 
+             ,inDate ]
+
+
+
+
 
 
 testSheet2 = [ bbText "Hello Here is some Text" , emptyCell,

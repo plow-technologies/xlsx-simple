@@ -98,29 +98,29 @@ inDouble  = xDouble 21
 
 
 bbDate  :: LocalTime -> CellData 
-bbDate  = xDate 10               
+bbDate  = xDate 11               
 ibDate  :: LocalTime -> CellData 
-ibDate  = xDate 11               
+ibDate  = xDate 12               
 nbDate  :: LocalTime -> CellData 
-nbDate  = xDate 12               
+nbDate  = xDate 13               
 bgrDate :: LocalTime -> CellData 
-bgrDate = xDate 13               
+bgrDate = xDate 14               
 igrDate :: LocalTime -> CellData 
-igrDate = xDate 14               
+igrDate = xDate 15               
 ngrDate :: LocalTime -> CellData 
-ngrDate = xDate 15               
+ngrDate = xDate 16               
 brDate  :: LocalTime -> CellData 
-brDate  = xDate 16               
+brDate  = xDate 17               
 irDate  :: LocalTime -> CellData 
-irDate  = xDate 17               
+irDate  = xDate 18               
 nrDate  :: LocalTime -> CellData 
-nrDate  = xDate 18               
+nrDate  = xDate 19               
 bgDate  :: LocalTime -> CellData 
-bgDate  = xDate 19               
+bgDate  = xDate 20               
 igDate  :: LocalTime -> CellData 
-igDate  = xDate 20               
+igDate  = xDate 21               
 inDate  :: LocalTime -> CellData 
-inDate  = xDate 21
+inDate  = xDate 22
 
 
 
