@@ -25,16 +25,13 @@ writeXlsxFile fname sName= (writeXlsxStyles fname styles).(:[]).(fcn sName)
 
 
 bHText :: Text -> CellData
-bHText = xText 6
+bHText = xText 13
 
 iHText :: Text -> CellData
-iHText = xText 7
-
-uHText :: Text -> CellData
-uHText = xText 8
+iHText = xText 14
 
 nHText :: Text -> CellData
-nHText = xText 9
+nHText = xText 12
 
 
 
@@ -46,54 +43,54 @@ emptyCell :: CellData
 emptyCell = bbText ""
 
 bbText  :: Text -> CellData                               
-bbText  = xText 10                                                            
+bbText  = xText 55                                                            
 ibText  :: Text -> CellData            
-ibText  = xText 11                                                            
+ibText  = xText 56                                                            
 nbText  :: Text -> CellData            
-nbText  = xText 12                
+nbText  = xText 45                
 bgrText :: Text -> CellData            
-bgrText = xText 13                
+bgrText = xText 46                
 igrText :: Text -> CellData            
-igrText = xText 14                
+igrText = xText 47                
 ngrText :: Text -> CellData            
-ngrText = xText 15                
+ngrText = xText 48                
 brText  :: Text -> CellData            
-brText  = xText 16                
+brText  = xText 49                
 irText  :: Text -> CellData            
-irText  = xText 17                
+irText  = xText 50                
 nrText  :: Text -> CellData           
-nrText  = xText 18                
+nrText  = xText 51                
 bgText  :: Text -> CellData           
-bgText  = xText 19                
+bgText  = xText 52                
 igText  :: Text -> CellData           
-igText  = xText 20                
+igText  = xText 53                
 inText  :: Text -> CellData            
-inText  = xText 21           
+inText  = xText 45           
 
 bbDouble  :: Double -> CellData 
-bbDouble  = xDouble 10          
+bbDouble  = xDouble 55          
 ibDouble  :: Double -> CellData 
-ibDouble  = xDouble 11          
+ibDouble  = xDouble 56          
 nbDouble  :: Double -> CellData 
-nbDouble  = xDouble 12          
+nbDouble  = xDouble 45          
 bgrDouble :: Double -> CellData 
-bgrDouble = xDouble 13          
+bgrDouble = xDouble 46          
 igrDouble :: Double -> CellData 
-igrDouble = xDouble 14          
+igrDouble = xDouble 47          
 ngrDouble :: Double -> CellData 
-ngrDouble = xDouble 15          
+ngrDouble = xDouble 48          
 brDouble  :: Double -> CellData 
-brDouble  = xDouble 16          
+brDouble  = xDouble 49          
 irDouble  :: Double -> CellData 
-irDouble  = xDouble 17          
+irDouble  = xDouble 50          
 nrDouble  :: Double -> CellData 
-nrDouble  = xDouble 18          
+nrDouble  = xDouble 51          
 bgDouble  :: Double -> CellData 
-bgDouble  = xDouble 19          
+bgDouble  = xDouble 52          
 igDouble  :: Double -> CellData 
-igDouble  = xDouble 20          
+igDouble  = xDouble 53          
 inDouble  :: Double -> CellData 
-inDouble  = xDouble 21
+inDouble  = xDouble 45
 
 
 

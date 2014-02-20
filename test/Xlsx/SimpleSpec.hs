@@ -4,6 +4,7 @@ module Xlsx.SimpleSpec (main, spec) where
 import Test.Hspec
 import Xlsx.Simple
 import Codec.Xlsx
+import Xlsx.Simple.Internal
 import Codec.Xlsx.Writer
 import Data.Time
 import Data.Time.LocalTime
@@ -15,29 +16,29 @@ testSheetName = "testSheet"
 
 
 testBbtext   :: CellData                               
-testBbtext  = bbText "Text Text"                                                            
+testBbtext  = bbText "testBbte"                                                            
 testIbtext   :: CellData            
-testIbtext  = ibText  "Text Text"                                                           
+testIbtext  = ibText  "estIbtex"                                                           
 testNbtext   :: CellData            
-testNbtext  = nbText   "Text Text"                
+testNbtext  = nbText   "stNbtext"                
 testBgrtext   :: CellData            
-testBgrtext = bgrText  "Text Text"                
+testBgrtext = bgrText  "stBgrtex"                
 testIgrtext   :: CellData            
-testIgrtext = igrText  "Text Text"                
+testIgrtext = igrText  "stIgrtex"                
 testNgrtext   :: CellData            
-testNgrtext = ngrText  "Text Text"                
+testNgrtext = ngrText  "stNgrtex"                
 testBrtext   :: CellData            
-testBrtext  = brText   "Text Text"                
+testBrtext  = brText   "stBrtext"                
 testIrtext   :: CellData            
-testIrtext  = irText   "Text Text"                
+testIrtext  = irText   "stIrtext"                
 testNrtext   :: CellData           
-testNrtext  = nrText   "Text Text"                
+testNrtext  = nrText   "stNrtext"                
 testBgtext   :: CellData           
-testBgtext  = bgText   "Text Text"                
+testBgtext  = bgText   "stBgtext"                
 testIgtext   :: CellData           
-testIgtext  = igText   "Text Text"                
+testIgtext  = igText   "stIgtext"                
 testIntext   :: CellData            
-testIntext  = inText   "Text Text"           
+testIntext  = inText   "stIntext"           
 
 testBbdouble   :: CellData 
 testBbdouble  = bbDouble 2.781828 
@@ -74,7 +75,7 @@ spec = do
     it "should print test data to xlsx file and exit" $ do                               
       t <- getCurrentTime
       let sheet3 = testSheet3 <*> [utcToLocalTime (hoursToTimeZone (-6)) t]
-      writeXlsxFile testFileName testSheetName ([testSheet] ++ [testSheet2] ++ [sheet3])
+      writeXlsxFile testFileName testSheetName ([testSheet] ++ [allNumStyles] ++ [testSheet2] ++ [sheet3])
       True `shouldBe` True
 
 
@@ -96,12 +97,11 @@ testSheet3 = [bbDate
 
 
 
+allStyles = xText <$> [ 1 .. 100] <*> ["Test text"]
 
+allNumStyles = xDouble <$> [1 .. 100] <*> [1.1]
 
-
-testSheet2 = [ bbText "Hello Here is some Text" , emptyCell,
-               bbDouble 4.8
-             ,bbDouble 3.3]
+testSheet2 = allStyles
 
 testSheet = [testBbtext 
             ,testBbtext 
