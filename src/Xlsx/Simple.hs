@@ -4,10 +4,21 @@ module Xlsx.Simple where
 import Xlsx.Simple.Internal
 
 import Data.Time
+import qualified Data.ByteString.Lazy as L
 import Codec.Xlsx
 import Codec.Xlsx.Writer
 -- import Data.ByteString.Lazy hiding (replicate, length)
 import Data.Text hiding (replicate, length)
+
+
+createXlsxFile :: Text -> [[CellData]] -> IO L.ByteString
+createXlsxFile sName = (createXlsxStyles styles).(:[]).(fcn sName)
+  where
+    fcn :: Text -> [[CellData]] -> Worksheet
+    fcn sheetName cellDataListList = fromList sheetName colWidth rowH (fmap (fmap Just) cellDataListList) (replicate colCount "")
+        where colWidth = (replicate colCount xDfltColWidth)
+              colCount = length cellDataListList 
+              rowH = xDfltRowHeight 
 
 writeXlsxFile :: FilePath -> Text -> [[CellData]] -> IO ()
 writeXlsxFile fname sName= (writeXlsxStyles fname styles).(:[]).(fcn sName)
